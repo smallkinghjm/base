@@ -1,0 +1,52 @@
+java有两种对象：实例对象和Class对象。
+java文件成功运行需要经过三个阶段
+	（1）Resources源代码阶段：java文件经过javac编译之后成为.class字节码文件（在硬盘中），其中主要包括java文件对应的类的名称、成员变量、构造方法、成员方法。
+	（2）Class类对象阶段：通过ClassLoader类加载器加载到内存中，Class类对象用来描述class字节码文件中的特征和行为,即将类的各个组成部分封装为其他对象（java反射机制）
+	（3）Runtime运行时阶段：对象实例化，xx类名 对象名=new xx构造方法（）;
+获取Class对象的方式：
+	1.     Class.forName("全限定类名") ：将字节码文件加载进内存，返回class对象，即程序在上述第一个阶段的时候。
+	2.     类名.class ：通过类名的属性class获取，即程序在上述第二个阶段的时候。
+	3.     对象.getClass(): getClass()方法在Object类中定义，所有对象都能调用,即程序在上述第三个阶段的时候。
+Class对象功能：
+	获取功能（不含有Declared的只能获取public修饰的）
+		（1）获取成员变量
+			Field getField(String name) 
+			Field[] getFields() 
+
+			Field[] getDeclaredFields() 
+			Field  getDeclaredField(String name)  
+		（2）获取构造方法
+			Constructor<T> getConstructor(Class<?>... parameterTypes)  	
+			Constructor<?>[] getConstructors()  
+
+			Constructor<?>[] getDeclaredConstructors() 
+			Constructor<T> getDeclaredConstructor(Class<?>... parameterTypes)  
+		（3）获取成员方法
+			Method[] getMethods() 
+			Method getMethod(String name, Class<?>... parameterTypes) 
+
+			Method getDeclaredMethod(String name, Class<?>... parameterTypes)  
+			Method[] getDeclaredMethods()  
+		（4）获取类名
+			String getName() 
+		
+	    获取到值之后可以做相应的操作，
+		Field:成员变量
+		  操作	可以设置成员变量的值，也可以获取该成员变量的（初始）值
+		设置值：
+			void set(Object obj,Object obj)
+		获取值：
+			get(Object obj)
+		忽略访问权限修饰符的安全检查
+			setAccessible(true):暴力反射
+
+		Constructor：构造方法
+		  创建对象：
+			T newInstance(Object... initargs) 
+			如果用空参构造方法创建对象，操作可以简化，调用Class对象的newInstance()方法
+		
+		Method:方法对象
+		  执行方法：
+			Object invoke(Object obj, Object... args) 
+		  获取方法名称：
+			String getName()
