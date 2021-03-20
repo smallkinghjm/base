@@ -1,0 +1,10 @@
+SDK(Software Developmrn)软件开发工具包
+JDK(Java Development Kit)Java开发工具包
+JRE(Java Runtime Environment)Java运行环境
+
+SDK范围较广，指辅助开发某一类软件的相关文档、范例和工具的集合。所以只说SDK其实不清楚表达什么意思，如果你在前面加上Android，就知道你说的是安卓开发工具包；加上百度广告接入，就知道你说的是百度移动广告接入的插件包。
+JDK是Java开发工具包，JDK是整个java开发的核心，它提供了Java的开发环境(提供了编译器javac等工具，用于将java文件编译为class文件)和运行环境(提 供了JVM和Runtime辅助包，用于解析class文件使其得到运行)。
+JRE只是java运行环境，包含JVM标准实现及 Java核心类库。
+	JDK是SDK的子集，
+	JDK=jRE+java的开发工具（javac.exe、java.exe、javadoc.exe）
+	JRE=JVM+java核心类库
